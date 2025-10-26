@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PacienteService {
-  private url = 'http://localhost:3000/pacientes';
+  private url =
+    'https://gestao-pacientes-exames-backend.onrender.com/pacientes';
 
   constructor(private http: HttpClient) {}
 
