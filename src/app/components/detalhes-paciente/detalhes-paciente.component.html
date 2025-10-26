@@ -1,0 +1,39 @@
+<div class="container">
+  <header class="header">
+    <h2>Detalhes do Paciente</h2>
+    <button class="btn btn-secondary" (click)="voltar()">✕ Fechar</button>
+  </header>
+
+  <div class="card info-pacientes" *ngIf="paciente">
+    <h3>{{ paciente.name }}</h3>
+    <p><strong>Documento:</strong> {{ paciente.document }}</p>
+    <p><strong>Nascimento:</strong> {{ formatarData(paciente.birthDate) }}</p>
+    <div class="actions">
+      <button class="btn btn-outline-primary btn-sm" (click)="editarPaciente()">
+        Editar Paciente
+      </button>
+    </div>
+  </div>
+
+  <div class="exames-section">
+    <div>
+      <h3>Exames do Paciente</h3>
+      <button class="btn btn-primary" (click)="novoExame()">
+        + Novo Exame
+      </button>
+    </div>
+    <div *ngIf="exames.length === 0" class="no-data">
+      Nenhum exame cadastrado
+    </div>
+    <div *ngFor="let exame of exames" class="exame-item">
+      <span>{{ exame.modality }} - {{ exame.procedure }}</span>
+      <span>{{ formatarData(exame.performedAt) }}</span>
+      <div class="actions">
+        <button class="btn btn-sm" (click)="verExame(exame.id)">Ver</button>
+        <button class="btn btn-sm btn-danger" (click)="excluirExame(exame.id)">
+          Excluir
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

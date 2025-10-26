@@ -1,0 +1,89 @@
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet"
+/><link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search"
+/>
+
+<div class="container">
+  <header class="header">
+    <div class="search-bar">
+      <input
+        type="text"
+        class="search"
+        placeholder="Buscar por nome..."
+        [(ngModel)]="termoBusca"
+        (input)="buscarPacientes()"
+      />
+      <span class="material-symbols-outlined"> search </span>
+    </div>
+    @if(termoBusca && !loading) {
+    <div class="search-result">
+      {{ pacientesFiltrados.length }} paciente(s) encontrado(s)
+    </div>
+    }
+    <button class="btn btn-primary" (click)="cadastrarPaciente()">
+      + Novo Paciente
+    </button>
+  </header>
+
+  <div class="table-container">
+    <table class="table" *ngIf="!loading">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Documento</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let paciente of pacientesFiltrados">
+          <td>{{ paciente.name }}</td>
+          <td>{{ paciente.document }}</td>
+          <td class="actions">
+            <button
+              class="btn btn-outline-primary btn-sm"
+              (click)="editarPaciente(paciente.id!)"
+            >
+              Editar
+            </button>
+            <button
+              class="btn btn-outline-success btn-sm"
+              (click)="verExames(paciente.id!)"
+            >
+              Exames
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="loading" class="loading">Carregando pacientes...</div>
+
+    <div *ngIf="!loading && pacientes.length === 0" class="no-data">
+      Nenhum paciente encontrado
+    </div>
+  </div>
+
+  <div
+    class="pagination"
+    *ngIf="!loading && pacientesFiltrados.length > 0 && !termoBusca"
+  >
+    <button
+      (click)="paginaAnterior()"
+      [disabled]="paginaAtual === 1"
+      class="btn btn-outline-secondary"
+    >
+      ← Anterior
+    </button>
+    <span>Página {{ paginaAtual }} de {{ totalPaginas }}</span>
+    <button
+      (click)="proximaPagina()"
+      [disabled]="paginaAtual === totalPaginas"
+      class="btn btn-outline-secondary"
+    >
+      Próxima →
+    </button>
+  </div>
+</div>

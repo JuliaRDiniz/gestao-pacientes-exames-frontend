@@ -1,0 +1,86 @@
+<div class="container">
+  <header class="header">
+    <h1>{{ editando ? "Editar" : "Cadastrar" }} Paciente</h1>
+    <button class="btn btn-secondary" (click)="voltar()">✕ Fechar</button>
+  </header>
+
+  <div class="form-container">
+    <form [formGroup]="formulario">
+      <div class="form-group">
+        <label>Nome completo *</label>
+        <input type="text" formControlName="name" class="form-control" />
+
+        @if(formulario.get('name')?.invalid && formulario.get('name')?.touched)
+        {
+        <div class="error">
+          @if(formulario.get('name')?.hasError('required')) {
+          <div>O campo nome é obrigatório</div>
+          } @if(formulario.get('name')?.hasError('minlength')) {
+          <div>Nome precisa ter no mínimo 3 letras</div>
+          }
+        </div>
+        }
+      </div>
+
+      <div class="form-group">
+        @if (editando) {
+        <label>CPF * (Não é possível alterar o CPF)</label>
+        } @else{
+        <label>CPF * (digite apenas números)</label>
+        }
+        <input
+          type="text"
+          formControlName="document"
+          class="form-control"
+          [readonly]="editando"
+        />
+        @if(formulario.get('document')?.invalid &&
+        formulario.get('document')?.touched) {
+        <div class="error">
+          @if(formulario.get('document')?.hasError('required')) {
+          <div>CPF é obrigatório</div>
+          } @if(formulario.get('document')?.hasError('minlength')) {
+          <div>CPF deve ter 11 dígitos</div>
+          } @if(formulario.get('document')?.hasError('maxlength')) {
+          <div>CPF deve ter 11 dígitos</div>
+          }
+        </div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Data de Nascimento *</label>
+        <input type="date" formControlName="birthDate" class="form-control" />
+
+        @if(formulario.get('birthDate')?.invalid &&
+        formulario.get('birthDate')?.touched) {
+        <div class="error">Data de nascimento é obrigatória</div>
+        }
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn btn-secondary" (click)="voltar()">
+          Cancelar
+        </button>
+        @if(editando) {
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="excluirPaciente()"
+          [disabled]="loading"
+        >
+          Excluir
+        </button>
+        }
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="salvar()"
+          [disabled]="formulario.invalid || loading"
+        >
+          {{ loading ? "Salvando..." : editando ? "Salvar" : "Cadastrar" }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

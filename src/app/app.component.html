@@ -1,0 +1,17 @@
+<div class="app-container">
+  <header class="header">
+    <h1>{{ title }}</h1>
+    <nav class="nav">
+      <a routerLink="/pacientes" class="nav-link">Pacientes</a>
+      <a routerLink="/exames" class="nav-link">Exames</a>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer class="footer">
+    <p>Sistema de gestão médica - Desafio Técnico</p>
+  </footer>
+</div>

@@ -1,0 +1,45 @@
+.app-container {
+  display: flex;
+  text-align: center;
+  flex-flow: column;
+  justify-content: center;
+  min-height: 100vh;
+
+  .header {
+    background-color: rgb(225, 241, 236);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 50px;
+    border-bottom: 0.5px solid #807f7f;
+    margin-bottom: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    .nav {
+      display: flex;
+      gap: 30px;
+
+      .nav-link {
+        font-weight: 600;
+        margin-right: 10px;
+        color: #363636;
+
+        &:hover {
+          color: #a8a8a8;
+          transition: all 1s;
+        }
+      }
+    }
+  }
+
+  .main-content {
+    flex: 1;
+    padding: 20px;
+  }
+  .footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ddd;
+  }
+}

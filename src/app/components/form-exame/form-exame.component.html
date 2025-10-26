@@ -1,0 +1,54 @@
+<div class="container">
+  <header class="header">
+    <h2>Cadastrar Exame</h2>
+    <button class="btn btn-secondary" (click)="voltar()">✕ Fechar</button>
+  </header>
+
+  <form [formGroup]="formulario" class="form-container">
+    <div class="form-group">
+      <label>Paciente *</label>
+      <select formControlName="patientId" class="form-control">
+        <option value="">Selecione um paciente</option>
+        <option *ngFor="let p of pacientes" [value]="p.id">
+          {{ p.name }} - {{ p.document }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Modalidade *</label>
+      <select formControlName="modality" class="form-control">
+        <option value="">Selecione</option>
+        <option *ngFor="let m of modalidades" [value]="m">{{ m }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Procedimento *</label>
+      <input type="text" formControlName="procedure" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label>Data e Hora *</label>
+      <input
+        type="datetime-local"
+        formControlName="performedAt"
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-actions">
+      <button type="button" class="btn btn-secondary" (click)="voltar()">
+        Cancelar
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="salvar()"
+        [disabled]="formulario.invalid || loading"
+      >
+        {{ loading ? "Salvando..." : "Salvar" }}
+      </button>
+    </div>
+  </form>
+</div>

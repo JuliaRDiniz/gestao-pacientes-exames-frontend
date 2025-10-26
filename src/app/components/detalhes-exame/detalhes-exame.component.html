@@ -1,0 +1,20 @@
+<div class="container">
+  <header class="header">
+    <h2>Detalhes do Exame</h2>
+    <button class="btn btn-secondary" (click)="voltar()">✕ Fechar</button>
+  </header>
+
+  <div class="card" *ngIf="exame">
+    <h3>Exame de {{ exame.modality }}</h3>
+    <p><strong>Procedimento:</strong> {{ exame.procedure }}</p>
+    <p><strong>Data:</strong> {{ formatarData(exame.performedAt) }}</p>
+    <p><strong>Paciente:</strong> {{ exame.patient?.name }}</p>
+    <p><strong>Documento:</strong> {{ exame.patient?.document }}</p>
+
+    <div class="actions">
+      <button class="btn btn-danger" (click)="excluirExame()">
+        Excluir Exame
+      </button>
+    </div>
+  </div>
+</div>

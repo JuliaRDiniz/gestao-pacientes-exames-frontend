@@ -1,0 +1,60 @@
+<div class="container">
+  <header class="header">
+    <h2>Lista de Exames</h2>
+    <button class="btn btn-primary" (click)="novoExame()">+ Novo Exame</button>
+  </header>
+
+  <div class="table-container">
+    <table class="table" *ngIf="!loading">
+      <thead>
+        <tr>
+          <th>Paciente</th>
+          <th>Modalidade</th>
+          <th>Procedimento</th>
+          <th>Data</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let exame of exames">
+          <td>{{ exame.patient?.name }}</td>
+          <td>{{ exame.modality }}</td>
+          <td>{{ exame.procedure }}</td>
+          <td>{{ formatarData(exame.performedAt) }}</td>
+          <td class="actions">
+            <button
+              class="btn btn-outline-primary btn-sm"
+              (click)="verDetalhes(exame.id!)"
+            >
+              Ver
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="loading" class="loading">Carregando exames...</div>
+
+    <div *ngIf="!loading && exames.length === 0" class="no-data">
+      Nenhum exame encontrado
+    </div>
+  </div>
+
+  <div class="pagination" *ngIf="!loading && exames.length > 0">
+    <button
+      (click)="paginaAnterior()"
+      [disabled]="paginaAtual === 1"
+      class="btn btn-outline-secondary"
+    >
+      ← Anterior
+    </button>
+    <span>Página {{ paginaAtual }} de {{ totalPaginas }}</span>
+    <button
+      (click)="proximaPagina()"
+      [disabled]="paginaAtual === totalPaginas"
+      class="btn btn-outline-secondary"
+    >
+      Próxima →
+    </button>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px;
+  gap: 25px;
+
+  header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 15px;
+    width: 50%;
+  }
+
+  .card {
+    padding-top: 5px;
+    padding-bottom: 10px;
+    text-align: center;
+    width: 40%;
+  }
+}

@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.header {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    gap: 3px;
+
+    .search {
+      width: 90%;
+    }
+  }
+}
+
+.table-container {
+  width: 70%;
+  text-align: center;
+
+  .actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
