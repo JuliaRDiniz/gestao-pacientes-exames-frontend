@@ -1,11 +1,7 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "dist/cadastro-pacientes-exames/**",
-      "use": "@vercel/static"
-    }
-  ],
+  "buildCommand": "ng build --configuration production",
+  "outputDirectory": "dist/cadastro-pacientes-exames/browser",
   "routes": [
     {
       "src": "/(.*)",
