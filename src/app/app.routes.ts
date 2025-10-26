@@ -10,9 +10,9 @@ export const routes: Routes = [
   { path: 'pacientes', component: ListaPacientesComponent },
   { path: 'pacientes/novo', component: FormPacienteComponent },
   { path: 'pacientes/:id/editar', component: FormPacienteComponent },
-  { path: 'pacientes/:id', component: DetalhesPacienteComponent }, // Nova
-  { path: 'exames/novo', component: FormExameComponent }, // Nova
-  { path: 'exames/:id', component: DetalhesExameComponent }, // Nova
+  { path: 'pacientes/:id', component: DetalhesPacienteComponent },
+  { path: 'exames/novo', component: FormExameComponent },
+  { path: 'exames/:id', component: DetalhesExameComponent },
 
   { path: 'exames', component: ListaExamesComponent },
   { path: '', redirectTo: '/pacientes', pathMatch: 'full' },
