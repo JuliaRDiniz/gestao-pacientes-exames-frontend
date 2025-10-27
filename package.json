@@ -4,7 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --configuration production",
+    "build": "ng build",
+    "build:production": "ng build --configuration production",
+    "build:gh-pages": "ng build --configuration production --base-href /gestao-pacientes-exames-frontend/",
+    "deploy:gh-pages": "npm run build:gh-pages && npx angular-cli-ghpages --dir=dist/cadastro-pacientes-exames/browser",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
