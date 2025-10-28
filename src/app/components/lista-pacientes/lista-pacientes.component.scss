@@ -3,7 +3,8 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  gap: 10px;
+  gap: 25px;
+  width: 100%;
 }
 
 .header {
@@ -22,6 +23,14 @@
       width: 90%;
     }
   }
+  @media (max-width: 768px) {
+    font-size: 14px;
+
+    & .btn {
+      padding: 5px;
+      font-size: 14px;
+    }
+  }
 }
 
 .table-container {
@@ -33,6 +42,16 @@
     gap: 10px;
     justify-content: center;
   }
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    width: 60%;
+
+    & .actions {
+      padding: 5px;
+      font-size: 14px;
+    }
+  }
 }
 
 .pagination {
@@ -40,4 +59,14 @@
   align-items: center;
   justify-content: center;
   gap: 15px;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+    width: 60%;
+
+    & .btn {
+      padding: 5px;
+      font-size: 14px;
+    }
+  }
 }

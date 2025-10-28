@@ -11,5 +11,5 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'MobileMed - Sistema Médico';
+  title = 'Sistema de Gestão de Pacientes e Exames';
 }
