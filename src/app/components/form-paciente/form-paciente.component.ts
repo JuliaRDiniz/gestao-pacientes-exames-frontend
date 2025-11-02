@@ -17,7 +17,6 @@ import { PacienteService } from '../../servico/paciente.service';
   styleUrls: ['./form-paciente.component.scss'],
 })
 export class FormPacienteComponent implements OnInit {
-  // Formulário SIMPLES - sem validações customizadas complexas
   formulario = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     document: new FormControl('', [
@@ -86,14 +85,12 @@ export class FormPacienteComponent implements OnInit {
   }
 
   salvar() {
-    // Marca todos como touched para mostrar erros
     this.formulario.markAllAsTouched();
 
     if (this.formulario.valid) {
       const errosValidacao = this.validarDados();
 
       if (errosValidacao.length > 0) {
-        // Mostra erros de validação customizados
         alert(errosValidacao.join('\n'));
         return;
       }
@@ -138,7 +135,7 @@ export class FormPacienteComponent implements OnInit {
 
     const confirmacao = confirm(
       'Tem certeza que deseja excluir este paciente?\n' +
-        'Todos os exames relacionados também serão excluídos.\n' +
+        'Caso o(a) paciente possua exames, é necessário excluir os exames primeiro.\n' +
         'Esta ação não pode ser desfeita.'
     );
 
@@ -154,7 +151,6 @@ export class FormPacienteComponent implements OnInit {
         error: (erro) => {
           this.loading = false;
 
-          
           if (erro.status === 404) {
             alert('Paciente não encontrado');
           } else if (erro.status === 409) {
