@@ -24,7 +24,7 @@ Para executar o projeto localmente:
 
 A versão hospedada também está disponível através do GitHub Pages, o que permite testar a interface sem necessidade de instalação local.
 
-Acesse o sistema através do [site](https://juliardiniz.github.io/gestao-pacientes-exames-frontend/)
+Acesse o sistema através do [site](https://gestao-pacientes-exames-frontend.vercel.app/pacientes)
 
 ## Estrutura do Projeto e Componentes
 
