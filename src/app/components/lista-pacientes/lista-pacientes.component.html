@@ -23,12 +23,12 @@
       {{ pacientesFiltrados.length }} paciente(s) encontrado(s)
     </div>
     }
-    <button class="btn btn-primary" (click)="cadastrarPaciente()">
+    <button class="btn btn-primary btn-sm" (click)="cadastrarPaciente()">
       + Novo Paciente
     </button>
   </header>
 
-  <div class="table-container">
+  <div class="table-container table-responsive mt-3">
     <table class="table" *ngIf="!loading">
       <thead>
         <tr>

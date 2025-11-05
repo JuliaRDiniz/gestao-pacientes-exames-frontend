@@ -1,15 +1,19 @@
 {
   "name": "cadastro-pacientes-exames",
   "version": "0.0.0",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "build:production": "ng build --configuration production",
-    "build:gh-pages": "ng build --configuration production --base-href /gestao-pacientes-exames-frontend/",
+    "build": "npx ng build --configuration production",
+    "build:production": "npx ng build --configuration production",
+    "build:gh-pages": "npx ng build --configuration production --base-href /gestao-pacientes-exames-frontend/",
     "deploy:gh-pages": "npm run build:gh-pages && npx angular-cli-ghpages --dir=dist/cadastro-pacientes-exames/browser",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "watch": "npx ng build --watch --configuration development",
+    "test": "ng test",
+    "postinstall": "npx --yes @angular/cli@17.3.17 version > /dev/null 2>&1 || true"
   },
   "private": true,
   "dependencies": {
